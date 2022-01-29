@@ -16,4 +16,7 @@ import com.zjl.myneteaseapp.base.BaseFragment
 class SplashFragment : BaseFragment(){
     override fun getLayout() = R.layout.fragment_splash
 
+    override fun initView() {
+        lottie_view_splash
+    }
 }
