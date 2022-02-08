@@ -1,7 +1,10 @@
 package com.zjl.myneteaseapp
 
 import com.zjl.myneteaseapp.base.BaseActivity
+import com.zjl.myneteaseapp.databinding.ActivityMainBinding
 
-class MainActivity : BaseActivity() {
-    override fun getLayout() = R.layout.activity_main
+class MainActivity : BaseActivity<ActivityMainBinding>() {
+
+    override fun getViewBinding() = ActivityMainBinding.inflate(layoutInflater)
+
 }

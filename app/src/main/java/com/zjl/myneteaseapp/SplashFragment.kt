@@ -2,6 +2,7 @@ package com.zjl.myneteaseapp
 
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
+import androidx.navigation.Navigation
 import com.zjl.myneteaseapp.base.BaseFragment
 import com.zjl.myneteaseapp.databinding.FragmentSplashBinding
 
@@ -16,15 +17,18 @@ import com.zjl.myneteaseapp.databinding.FragmentSplashBinding
  *
  * Copyright (c) 2022年, 4399 Network CO.ltd. All Rights Reserved.
  */
-class SplashFragment : BaseFragment(){
-    override fun getLayout() = R.layout.fragment_splash
+class SplashFragment : BaseFragment<FragmentSplashBinding>(){
 
-    private val binding: FragmentSplashBinding by lazy { FragmentSplashBinding.inflate(layoutInflater) }
+    override fun getViewBinding() = FragmentSplashBinding.inflate(layoutInflater)
 
     override fun initView() {
+        binding.lottieViewSplash.speed = 3.0f
         binding.lottieViewSplash.addAnimatorListener(object : AnimatorListenerAdapter() {
             override fun onAnimationEnd(animation: Animator?) {
+                activity?.let {
+                    Navigation.findNavController(it, R.id.nav_host_fragment).navigate(R.id.action_splashFragment_to_mainFragment)
 
+                }
             }
         })
     }

@@ -7,5 +7,14 @@
     <fragment
         android:id="@+id/splashFragment"
         android:name="com.zjl.myneteaseapp.SplashFragment"
-        android:label="SplashFragment" />
+        android:label="SplashFragment" >
+        <action
+            android:id="@+id/action_splashFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.zjl.myneteaseapp.MainFragment"
+        android:label="MainFragment" />
 </navigation>

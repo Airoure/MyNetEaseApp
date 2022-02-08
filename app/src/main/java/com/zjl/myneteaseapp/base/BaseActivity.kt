@@ -3,6 +3,7 @@ package com.zjl.myneteaseapp.base
 import android.os.Bundle
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
+import androidx.viewbinding.ViewBinding
 import com.gyf.immersionbar.ImmersionBar
 import com.zjl.myneteaseapp.R
 
@@ -17,11 +18,11 @@ import com.zjl.myneteaseapp.R
  *
  * Copyright (c) 2022年, 4399 Network CO.ltd. All Rights Reserved.
  */
-abstract class BaseActivity : AppCompatActivity() {
+abstract class BaseActivity <T: ViewBinding> : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(getLayout())
+        setContentView(getViewBinding().root)
         initStatusBar()
 
     }
@@ -43,7 +44,7 @@ abstract class BaseActivity : AppCompatActivity() {
      *
      * @return
      */
-    abstract fun getLayout(): Int
+    abstract fun getViewBinding(): T
 
     /**
      * 初始化数据
