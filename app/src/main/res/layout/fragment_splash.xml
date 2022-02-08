@@ -13,6 +13,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:lottie_loop="false"
+        app:lottie_autoPlay="true"
         app:lottie_rawRes="@raw/welcome"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

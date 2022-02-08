@@ -52,4 +52,7 @@ dependencies {
     implementation("androidx.navigation:navigation-dynamic-features-fragment:2.3.5")
     //lottie
     implementation 'com.airbnb.android:lottie:4.2.2'
+    //immersionbar
+    implementation 'com.gyf.immersionbar:immersionbar:3.0.0'
+    implementation 'com.gyf.immersionbar:immersionbar-ktx:3.0.0'
 }

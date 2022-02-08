@@ -1,7 +1,10 @@
 package com.zjl.myneteaseapp.base
 
 import android.os.Bundle
+import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
+import com.gyf.immersionbar.ImmersionBar
+import com.zjl.myneteaseapp.R
 
 /**
  * Project Name: MyNetEaseApp
@@ -19,6 +22,20 @@ abstract class BaseActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(getLayout())
+        initStatusBar()
+
+    }
+
+    private fun initStatusBar() {
+        if (shouldApplyStatusBar()) {
+            supportActionBar?.hide()
+            ImmersionBar.with(this)
+                .statusBarDarkFont(isStatusBarDarkFont())
+                .navigationBarColor(R.color.white)
+                .autoDarkModeEnable(true)
+                .supportActionBar(false)
+                .init()
+        }
     }
 
     /**
@@ -41,4 +58,14 @@ abstract class BaseActivity : AppCompatActivity() {
     open fun initView() {
 
     }
+
+    /**
+     * 是否黑色主题
+     */
+    open fun isStatusBarDarkFont(): Boolean = true
+
+    /**
+     * 是否需要启用透明状态栏
+     */
+    open fun shouldApplyStatusBar(): Boolean = true
 }

@@ -1,6 +1,9 @@
 package com.zjl.myneteaseapp
 
+import android.animation.Animator
+import android.animation.AnimatorListenerAdapter
 import com.zjl.myneteaseapp.base.BaseFragment
+import com.zjl.myneteaseapp.databinding.FragmentSplashBinding
 
 /**
  * Project Name: MyNetEaseApp
@@ -16,7 +19,13 @@ import com.zjl.myneteaseapp.base.BaseFragment
 class SplashFragment : BaseFragment(){
     override fun getLayout() = R.layout.fragment_splash
 
+    private val binding: FragmentSplashBinding by lazy { FragmentSplashBinding.inflate(layoutInflater) }
+
     override fun initView() {
-        lottie_view_splash
+        binding.lottieViewSplash.addAnimatorListener(object : AnimatorListenerAdapter() {
+            override fun onAnimationEnd(animation: Animator?) {
+
+            }
+        })
     }
 }
